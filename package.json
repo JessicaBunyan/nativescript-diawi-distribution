@@ -1,0 +1,35 @@
+{
+  "name": "nativescript-diawi-distribution",
+  "version": "1.0.0",
+  "description": "Plugin for nativescript builds to trigger automatic uploading of apps to diawi online service for distribution",
+  "main": "diawi-upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessicaBunyan/nativescript-diawi-distribution.git"
+  },
+  "keywords": [
+    "nativescript",
+    "diawi",
+    "ios",
+    "android",
+    "distribution"
+  ],
+  "author": "Jessica Bunyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessicaBunyan/nativescript-diawi-distribution/issues"
+  },
+  "homepage": "https://github.com/JessicaBunyan/nativescript-diawi-distribution#readme",
+  "nativescript": {
+    "hooks": [
+      {
+        "type": "after-build",
+        "script": "diawi-upload.js",
+        "inject": true
+      }
+    ]
+  }
+}
