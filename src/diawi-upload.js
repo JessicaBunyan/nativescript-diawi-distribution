@@ -44,7 +44,6 @@ module.exports = function ($logger, hookArgs) {
       (hookArgs.buildOpts && hookArgs.buildOpts.projectData) ||
       hookArgs.projectData;
     var platformsDir = projectData.platformsDir;
-    console.log("platformsDir ", platformsDir);
     let appPath;
     if (platform == "android") {
       appPath = path.resolve(
@@ -74,12 +73,12 @@ module.exports = function ($logger, hookArgs) {
 
     const diawi = new Diawi(parameters)
       .on("complete", (url) => {
-        console.log("App successfully uplaoded to diawi - URL:");
-        console.log(url);
+        $logger.info("App successfully uplaoded to diawi - URL:");
+        $logger.info(url);
         resolve();
       })
       .on("error", (err) => {
-        console.log("error uploading to diawi, proceeding anyway", err);
+        $logger.warn("Error uploading to diawi, proceeding anyway", err);
         resolve();
       });
 
