@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- nativescript and nativescript-hook packaged installed
+- nativescript installed, ability to build nativescript apps
 - Diawi account (free accounts available)
 
 ## Quick Start
