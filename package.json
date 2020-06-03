@@ -4,7 +4,9 @@
   "description": "Plugin for nativescript builds to trigger automatic uploading of apps to diawi online service for distribution",
   "main": "diawi-upload.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node postinstall.js",
+    "preuninstall": "node preuninstall.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
     "distribution"
   ],
   "author": "Jessica Bunyan",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JessicaBunyan/nativescript-diawi-distribution/issues"
   },
