@@ -20,3 +20,7 @@
 ## Configuration
 
 "emails" can also be specified as a field in the configuration file as a comma separated list. Addresses listed here will be notified of build completion with a link to download
+
+## Credit
+
+Diawi upload code originally by Ronak Doshi and can be found here as part of a github action: https://github.com/rnkdsh/action-upload-diawi
