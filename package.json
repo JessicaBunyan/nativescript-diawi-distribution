@@ -28,8 +28,13 @@
   "nativescript": {
     "hooks": [
       {
-        "type": "after-build",
-        "script": "diawi-upload.js",
+        "type": "after-buildAndroid",
+        "script": "src/diawi-upload.js",
+        "inject": true
+      },
+      {
+        "type": "after-buildIOS",
+        "script": "src/diawi-upload.js",
         "inject": true
       }
     ]
