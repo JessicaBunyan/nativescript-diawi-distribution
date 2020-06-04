@@ -29,10 +29,10 @@ module.exports = function ($logger, hookArgs) {
       "Config file diawi-upload.config.json is required in project root directory "
     );
   }
-
+  if (!config.diawi_access_token) {
+    throw new Error("diawi_access_token missing from configuration file");
+  }
   return new Promise(function (resolve, reject) {
-    console.log("");
-    console.log(hookArgs.env);
     const env = buildData.env;
 
     var isReleaseBuild = !!(
@@ -46,14 +46,14 @@ module.exports = function ($logger, hookArgs) {
     var platformsDir = projectData.platformsDir;
     let appPath;
     if (platform == "android") {
-      appPath = path.resolve(
+      appPath = path.join(
         platformsDir,
         platform,
         "/app/build/outputs/apk",
-        isReleaseBuild ? "debug/app-debug.apk" : "release/app-release.apk"
+        isReleaseBuild ? "release/app-release.apk" : "debug/app-debug.apk"
       );
     } else {
-      appPath = path.resolve(
+      appPath = path.join(
         platformsDir,
         platform,
         "build",
@@ -61,16 +61,20 @@ module.exports = function ($logger, hookArgs) {
         projectData.projectName
       );
     }
+    if (!fs.existsSync(appPath)) {
+      throw new Error("Could not find packaged app at location: " + appPath);
+    }
 
     const parameters = {
-      token: config.token,
+      token: config.diawi_access_token,
       path: appPath,
-      callback_emails: config.emails,
+      callback_emails: config.emails || "",
       comment:
         "Build uploaded automatically by Jessica's magic plugin on: " +
         new Date(),
     };
 
+    $logger.info("App upload from " + appPath + " beginning");
     const diawi = new Diawi(parameters)
       .on("complete", (url) => {
         $logger.info("App successfully uplaoded to diawi - URL:");

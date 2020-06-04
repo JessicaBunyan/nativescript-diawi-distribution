@@ -11,7 +11,7 @@
 2.  Generate a Diawi access token here [https://dashboard.diawi.com/profile/api](https://dashboard.diawi.com/profile/api)
 3.  Copy the below config, insert the token from above step and save in project root as "diawi-upload.config.json"
     {
-    "diawi-access-token": "[YOUR_TOKEN_HERE]",
+    "diawi_access_token": "[YOUR_TOKEN_HERE]",
     }
 4.  Use nativescript build commands for ios/android and include --env.diawi flag
     4a. eg: tns build android --env.diawi
