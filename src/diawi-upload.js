@@ -74,7 +74,7 @@ module.exports = function ($logger, hookArgs) {
         new Date(),
     };
 
-    $logger.info("App upload from " + appPath + " beginning");
+    $logger.info("Begin app upload from local file: " + appPath);
     const diawi = new Diawi(parameters)
       .on("complete", (url) => {
         $logger.info("App successfully uplaoded to diawi - URL:");
