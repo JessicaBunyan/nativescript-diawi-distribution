@@ -10,7 +10,7 @@ module.exports = function ($logger, hookArgs) {
     return;
   }
   const platform = buildData.platform.toLowerCase();
-  if (platform === "ios" && !buildData["for-device"] && !buildData.release) {
+  if (platform === "ios" && !buildData.buildForDevice && !buildData.release) {
     $logger.warn(
       "App cannot be uploaded for distribution unless the --release or --for-device flag is set"
     );
