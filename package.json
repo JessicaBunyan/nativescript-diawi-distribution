@@ -1,6 +1,6 @@
 {
   "name": "nativescript-diawi-distribution",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Plugin for nativescript builds to trigger automatic uploading of apps to diawi online service for distribution",
   "main": "diawi-upload.js",
   "scripts": {
