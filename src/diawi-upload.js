@@ -58,7 +58,7 @@ module.exports = function ($logger, hookArgs) {
         platform,
         "build",
         isReleaseBuild ? "Release-iphoneos" : "Debug-iphoneos",
-        projectData.projectName
+        projectData.projectName + ".ipa"
       );
     }
     if (!fs.existsSync(appPath)) {
